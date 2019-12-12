@@ -1,0 +1,91 @@
+/*
+
+	RUPP Dev Team
+
+*/
+
+@import url('https://fonts.googleapis.com/css?family=Arimo');
+@import url('https://fonts.googleapis.com/css?family=Ubuntu');
+
+html{
+	background: #f2f2f2;
+}
+
+body{
+	background: #e95420; /* Old browsers */
+background: -moz-linear-gradient(top, #e95420 0%, #8d1437 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top, #e95420 0%,#8d1437 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom, #e95420 0%,#8d1437 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e95420', endColorstr='#8d1437',GradientType=0 ); /* IE6-9 */
+	background-size: cover;
+	font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+	color: white;
+	background-repeat: no-repeat; 
+}
+
+
+
+h1, h2, h3, h4, h5, h6{
+	font-family: Ubuntu;
+}
+
+h1, h2{
+	font-family: bold;
+}
+
+#profs{
+	background: #f2f2f2;
+	color: #090909;
+}
+
+#profs li{
+	padding: 0.5em 2em;
+	margin: 1em;
+}
+
+#profs li div:first-child {
+	font-family: Ubuntu;
+	font-weight: 600;
+}
+
+#profs li ul{
+	list-style: none;
+	font-size: .85em;
+}
+
+#profs li ul li div:not(:first-child){
+	display: inline-block;
+	margin: 1em;
+	font-family: Ubuntu;
+}
+
+#profs li ul li{
+	background: #eeeeee;
+	border-radius: 4px;
+}
+
+#profs li ul li i{
+	color: #333;
+}
+
+button{
+	font-family: Ubuntu;
+	background: #8d1437;
+	color: white;
+	margin-top: 0.5em;
+}
+
+.over9000{
+	color: #182;
+	font-weight: 800;
+}
+
+.divider{
+	border-top: 1px solid #ddd;
+	padding: 1em;
+	width: 100%;
+}
+
+.vh-100 {
+	min-height: 100vh;
+}

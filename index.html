@@ -1,0 +1,36 @@
+<html>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <title>RUPP Temp Search</title>
+    <script src="jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="rupp.css">
+  </head>
+  <body class="vh-100 d-flex flex-column">
+  	<div class="my-auto text-center" id="site-container">
+	    <h3>Rate UP Professors (Temp)</h3> <p>Type a prof's name to search for it. You can also access this website while offline.</p>
+	    <input type="text" id="search-bar" class="form-control w-50 mx-auto" autofocus>
+	    <div id="status" class="my-4">Loading...</div>
+	    <ul id="profs" class="d-flex flex-wrap justify-content-around m-4 list-unstyled"></ul>
+	</div>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="main.js"></script>
+	<script src="Professor.js"></script>
+	<script src="Review.js"></script>
+	<script>
+	// Register the service worker
+	if ('serviceWorker' in navigator) {
+	navigator.serviceWorker.register('sw.js').then(function(registration) {
+	  // Registration was successful
+	  console.log('ServiceWorker registration successful with scope: ', registration.scope);
+	}).catch(function(err) {
+	  // registration failed :(
+	    console.log('ServiceWorker registration failed: ', err);
+	  });
+	}
+	</script>
+  </body>
+</html>
