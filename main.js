@@ -22,7 +22,9 @@ $(function() {
   var diffYear = nowYear - 2018;
 
   $('#status').html(`
-    This site is not updated and contains contents ${diffYear} year${diffYear == 1 '': 's'} ago. The comments may not reflect the instructors' and the professors' way of teaching today. Thanks! 
+    <small>
+      <p>DISCLAIMER: This site has not been updated and contains contents ${diffYear} year${diffYear == 1? '': 's'} ago. The comments may not reflect the instructors' and the professors' way of teaching today.</p> 
+    </small>
   `)
 })
 
