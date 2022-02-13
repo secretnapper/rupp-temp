@@ -17,7 +17,13 @@ intervalId = setInterval(function() {
 }, 200)
 
 $(function() {
-  $('#status').html('Done loading.')
+
+  var nowYear  = new Date().getFullYear();
+  var diffYear = nowYear - 2018;
+
+  $('#status').html(`
+    This site is not updated and contains contents ${diffYear} year${diffYear == 1 '': 's'} ago. The comments may not reflect the instructors' and the professors' way of teaching today. Thanks! 
+  `)
 })
 
 function StarCalculate(number){
