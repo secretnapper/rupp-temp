@@ -5,17 +5,37 @@
     <script src="jquery-3.3.1.min.js"></script>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" type="text/css" href="rupp.css">
   </head>
   <body class="vh-100 d-flex flex-column">
   	<div class="my-auto text-center" id="site-container">
-	    <h3>Rate UP Professors (Cached)</h3> <p>Type a prof's name to search for it. You can also access this website while offline.</p>
-	    <input type="text" id="search-bar" class="form-control w-50 mx-auto" autofocus>
-	    <div id="status" class="my-4">Loading...</div>
-	    <ul id="profs" class="d-flex flex-wrap justify-content-around m-4 list-unstyled"></ul>
+		<h3>Rate UP Professors (Cached)</h3> <p>Type a prof's name to search for it. You can also access this website while offline.</p>
+		<input type="text" id="search-bar" class="form-control w-75 mx-auto" autofocus>
+		<div id="status" class="mt-4 container">Loading...</div>
+		<ul id="profs" class="d-flex flex-wrap justify-content-around m-4 list-unstyled"></ul>
+		<hr class="container">
+		<div class="mt-4" id="disclaimer"></div>
+		<div class="d-flex w-100 justify-content-between">
+			<div class="mx-auto">
+				<a href="https://www.reddit.com/r/RateUPProfs/" target="_blank" class="mx-3">
+					<button class="btn btn-light d-inline-flex">
+						<i class="fa-brands fa-reddit mr-2 my-auto"></i>
+						<span class="my-auto">Reddit</span>
+					</button>
+				</a>
+				<a href="http://rupp.herokuapp.com" target="_blank" class="mx-3">
+					<button class="btn btn-light d-inline-flex">
+						<i class="fa-solid fa-circle-question mr-2 my-auto"></i>
+						<span class="my-auto">Is Profs to Pick Up?</span>
+					</button>
+				</a>
+			</div>
+		</div>
+		
 	</div>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js" integrity="sha512-yFjZbTYRCJodnuyGlsKamNE/LlEaEAxSUDe5+u61mV8zzqJVFOH7TnULE2/PP/l5vKWpUNnF4VGVkXh3MjgLsg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="main.js"></script>
 	<script src="Professor.js"></script>

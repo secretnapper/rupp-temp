@@ -41,6 +41,7 @@ h1, h2{
 #profs li{
 	padding: 0.5em 2em;
 	margin: 1em;
+	min-width: 20em;
 }
 
 #profs li div:first-child {
@@ -51,6 +52,7 @@ h1, h2{
 #profs li ul{
 	list-style: none;
 	font-size: .85em;
+	padding: 0;
 }
 
 #profs li ul li div:not(:first-child){
@@ -82,10 +84,25 @@ button{
 
 .divider{
 	border-top: 1px solid #ddd;
-	padding: 1em;
+	padding: 0;
 	width: 100%;
 }
 
 .vh-100 {
 	min-height: 100vh;
+}
+
+
+a:hover{
+	text-decoration: none;
+}
+
+hr{
+	border-color:white
+}
+
+@media (min-width: 1440px){
+	.container {
+		max-width: 1400px;
+	}
 }
