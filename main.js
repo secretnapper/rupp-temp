@@ -28,7 +28,7 @@ $(function() {
       <p class="mb-2">
         Only for archival purposes. This site has not been updated and contains contents ${diffYear} year${diffYear == 1? '': 's'} ago. #RIPRUPP
       </p>
-      <p>
+      <p class="beware">
         The comments may not reflect the instructors' and the professors' way of teaching today.
       </p>
     </small>
@@ -36,6 +36,20 @@ $(function() {
 
   $('#status').remove();
 })
+
+let messageCt = 0;
+setInterval(function() {
+  let messages = [
+    "The comments may not reflect the instructors' and the professors' way of teaching today.",
+    "Please don't muddle your judgement.",
+    "Remember that each student is challenged differently.",
+    "Some may rate high because they easily received a high grade but some rate high after being challenged and learned."
+  ];
+
+  messageCt = (messageCt + 1) % messages.length;
+  $(".beware").html(messages[messageCt]);
+
+}, 12000)
 
 function StarCalculate(number){
   var starct = parseInt(number);
@@ -93,7 +107,7 @@ function mainFunc() {
         return a.firstName.toLowerCase().localeCompare(b.firstName.toLowerCase());
       });
       searchResults.sort(function(a, b) {
-        return a.lastName.toLowerCase().localeCompare(b.lastName.toLowerCase());
+          return a.lastName.toLowerCase().localeCompare(b.lastName.toLowerCase());
       });
       searchResults.sort(function(a, b) {
         return +(searchStart.test(b.firstName.toLowerCase())) - +(searchStart.test(a.firstName.toLowerCase()));
