@@ -1,7 +1,7 @@
 reviewTemplate = `
 <li class="mt-3">
-    <div class="row d-block d-lg-flex p-lg-3 p-4">
-        <div class="col-lg-8 col order-lg-2 ps-lg-3">
+    <div class="row d-block d-lg-flex p-lg-3 p-4 mx-0">
+        <div class="col-lg-10 col order-lg-2 ps-lg-3">
             <div class="my-3 my-lg-0">
                 {0}
             </div>

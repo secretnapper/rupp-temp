@@ -8,12 +8,8 @@
 	min-width: 20em;
 }
 
-#profs li .prof-name{
-	font-family: Ubuntu;
-	font-weight: 600;
-}
 #profs li ul{
-	font-size: .85em;
+	font-size: .8em;
 	list-style: none;
 	padding: 0;
 }
@@ -39,34 +35,56 @@
 }
 
 .prof-name{
+	font-family: Ubuntu;
+	font-weight: 600;
+	text-align: left;
+	font-size: 0.8rem;
 	margin-top: auto;
 	margin-bottom: auto;
+}
+
+.ratings{
+	margin-right: 1rem;
+}
+
+.rating-factor{
+	display: none;
 }
 
 .review-button{
 	background-color: #8d1437 !important;
 	color: white !important;
+	font-size: 0.6rem;
+	padding: 0.35rem 0.5rem;
 }
 
 .reviews-shown .more-info{
 	flex-direction: column;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .reviews-shown .prof-name{
 	margin-left: auto;
 	margin-top: 1rem;
-	margin-bottom: 1.25rem;
-	font-size: 1.5rem;
+	text-align: center;
+	margin-bottom: 1rem;
+	font-size: 1rem;
 }
 
 .reviews-shown .ratings{
 	display: flex !important;
+	margin-right: 0;
 }
 
 .reviews-shown .rating{
 	padding: 0.5rem;
 	background: #eeeeee;
 	border-radius: 4px;
+}
+
+.reviews-shown .rating-factor{
+	display: flex;
 }
 
 .reviews-shown .review-button{
@@ -76,6 +94,10 @@
 
 .search-icon{
 	color: #090909;
+}
+
+.small, small {
+	font-size: .675em;
 }
 
 .star{
@@ -96,7 +118,28 @@
 		margin-left: 0 !important;
 	}
 
+	#profs li ul{
+		font-size: .85em;
+	}
+
+	.prof-name{
+		font-size: 1rem;
+	}
+
+	.rating-factor{
+		display: flex;
+	}
+
+	.review-button{
+		font-size: 0.85rem;
+		padding: 0.5rem 0.85rem;
+	}
 	
+	.reviews-shown .prof-name{
+		font-size: 1.5rem;
+		margin-bottom: 1.25rem;
+	}
+
 	.reviews-shown .rating span{
 		font-size: 1.5rem;
 	}
@@ -106,6 +149,10 @@
 		background: #eeeeee;
 		border-radius: 4px;
 		min-width: 90px;
+	}
+
+	.small, small {
+		font-size: .875em;
 	}
 }
 

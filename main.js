@@ -89,6 +89,9 @@ function mainFunc() {
     if(searchName == ''){
       $('#profs').html('');
       $("#bottom-text").removeClass("d-none");
+      if(window.location.hash != ""){
+        // window.location.hash = "";
+      }
     }
     else if(searchName.length > 1){
       searchName = searchName.toLowerCase()
@@ -146,6 +149,7 @@ function mainFunc() {
       if ($(this).attr('shown') == 'true') {
         reviewList = $(this).closest(".prof-row").children('ul')
         reviewList.html('')
+        // window.location.hash = "";
         $(this).attr('shown', 'false')
         $(this).text('Show')
         $("#profs li").addClass("d-flex")
@@ -164,6 +168,7 @@ function mainFunc() {
         reviewList = $(this).closest(".prof-row").children('ul')
         reviewList.html('')
         id = $(this).attr('id')
+        // window.location.hash = id;
         profReviews = reviews.filter(function(p) {
           return id == p.professor_id
         })
