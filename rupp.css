@@ -4,9 +4,6 @@
 	background: #f2f2f2;
 	color: #090909;
 }
-#profs li{
-	min-width: 20em;
-}
 
 #profs li ul{
 	font-size: .85em;
