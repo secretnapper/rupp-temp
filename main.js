@@ -93,7 +93,7 @@ function mainFunc() {
         return a.firstName.toLowerCase().localeCompare(b.firstName.toLowerCase());
       });
       searchResults.sort(function(a, b) {
-        return a.lastName.toLowerCase().localeCompare(b.lastName.toLowerCase());
+        return b.lastName.toLowerCase().localeCompare(a.lastName.toLowerCase());
       });
       searchResults.sort(function(a, b) {
         return +(searchStart.test(b.firstName.toLowerCase())) - +(searchStart.test(a.firstName.toLowerCase()));
