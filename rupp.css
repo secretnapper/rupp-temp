@@ -9,7 +9,7 @@
 }
 
 #profs li ul{
-	font-size: .8em;
+	font-size: .85em;
 	list-style: none;
 	padding: 0;
 }
@@ -38,7 +38,7 @@
 	font-family: Ubuntu;
 	font-weight: 600;
 	text-align: left;
-	font-size: 0.8rem;
+	font-size: 0.85rem;
 	margin-top: auto;
 	margin-bottom: auto;
 }
@@ -54,7 +54,7 @@
 .review-button{
 	background-color: #8d1437 !important;
 	color: white !important;
-	font-size: 0.6rem;
+	font-size: 0.75rem;
 	padding: 0.35rem 0.5rem;
 }
 
@@ -97,7 +97,7 @@
 }
 
 .small, small {
-	font-size: .675em;
+	font-size: .75em;
 }
 
 .star{
