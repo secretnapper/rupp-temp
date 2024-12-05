@@ -96,6 +96,10 @@
 	color: #090909;
 }
 
+.small, small {
+	font-size: .8em;
+}
+
 .star{
 	color: #3d8fbe;
 }
@@ -145,6 +149,10 @@
 		background: #eeeeee;
 		border-radius: 4px;
 		min-width: 90px;
+	}
+
+	.small, small {
+		font-size: .875em;
 	}
 }
 
