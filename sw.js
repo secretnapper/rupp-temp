@@ -2,8 +2,9 @@
 
 var files = [
   './index.html',
-  './jquery-3.3.1.min.js',
+  './jquery-3.7.1.min.js',
   './main.js',
+  './proftemplate.js',
   './Professor.js',
   './Review.js'
 ]

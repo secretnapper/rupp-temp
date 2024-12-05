@@ -13,17 +13,24 @@ intervalId = setInterval(function() {
     mainFunc()
     clearInterval(intervalId)
   }
-  console.log('s')
 }, 200)
 
 $(function() {
 
-  var nowYear  = new Date().getFullYear();
-  var diffYear = nowYear - 2018;
+  const nowYear  = new Date().getFullYear();
+  const diffYear = nowYear - 2018;
 
   $('#disclaimer').html(`
     <small>
-      <p>DISCLAIMER: Not affiliated with the original Profs to Pick developer. This site has not been updated and contains contents ${diffYear} year${diffYear == 1? '': 's'} ago. The comments may not reflect the instructors' and the professors' way of teaching today.</p> 
+      <p class="fst-italic mb-0">
+        <span>DISCLAIMER: Not affiliated with the original Profs to Pick developer "Secretmapper/Himachizu."</span>
+      </p> 
+      <p class="mb-2">
+        Only for archival purposes. This site has not been updated and contains contents ${diffYear} year${diffYear == 1? '': 's'} ago. #RIPRUPP
+      </p>
+      <p>
+        The comments may not reflect the instructors' and the professors' way of teaching today.
+      </p>
     </small>
   `)
 
@@ -33,18 +40,21 @@ $(function() {
 function StarCalculate(number){
   var starct = parseInt(number);
   var string = "";
-  for (var i = 0; i < starct; i++) {
-    string = string + "<i class='fa-solid fa-star'></i>";
+  let i = 0;
+  while (i < 5){
+    let star = `<i class="fa-regular fa-star"></i>`;
+    if (i < starct){
+      star = `<i class='fa-solid fa-star'></i>`;
+    }
+    string = string.concat(star); 
+    i = i+1
   }
 
   return string;
 }
 
-function Divider(number){
-  var result = "";
-  if((number%4) == 3){
-    result = "<div class='divider d-block'></div>";
-  }
+function Divider(){
+  result = "<div class='divider d-block'></div>";
   return result;
 }
 
@@ -63,9 +73,10 @@ function mainFunc() {
     searchName = this.value
     
     if(searchName == ''){
-      $('#profs').html('')
+      $('#profs').html('');
+      $("#bottom-text").removeClass("d-none");
     }
-    else{
+    else if(searchName.length > 1){
       searchName = searchName.toLowerCase()
       searchResults = professors.filter(function(p) {
         firstName = p.firstName.toLowerCase()
@@ -76,13 +87,33 @@ function mainFunc() {
           (lastName + ', ' + firstName).includes(searchName) ||
           (firstName + ' ' + lastName).includes(searchName)
       })
-      $('#profs').html('')
+
+      let searchStart = new RegExp(String.raw`^${searchName}`, "ig");
+      searchResults.sort(function(a, b) {
+        return +(b.firstName.toLowerCase()) - +(a.firstName.toLowerCase());
+      });
+      searchResults.sort(function(a, b) {
+        return +(b.lastName.toLowerCase()) - +(a.lastName.toLowerCase());
+      });
+      searchResults.sort(function(a, b) {
+        return +(searchStart.test(b.firstName.toLowerCase())) - +(searchStart.test(a.firstName.toLowerCase()));
+      });
+      searchResults.sort(function(a, b) {
+        return +(searchStart.test(b.lastName.toLowerCase())) - +(searchStart.test(a.lastName.toLowerCase()));
+      });
+
+      $('#profs').html('');
       //searchResults.length
       if(searchResults.length == 0){
         $('#profs').append(noResultTemplate);
+        $("#bottom-text").removeClass("d-none");
       }
       else{
         for (var i = 0; i < searchResults.length; i++) {
+          if(i > 0){
+            $('#profs').append(Divider());
+          }
+
           $('#profs').append(profTemplate.format(
             searchResults[i].lastName,
             searchResults[i].firstName,
@@ -90,20 +121,22 @@ function mainFunc() {
             Over(searchResults[i].rating.pedagogy.toFixed(2)),
             Over(searchResults[i].rating.easiness.toFixed(2)),
             Over(searchResults[i].rating.overall.toFixed(2)),
-            searchResults[i]._id,
-            Divider(i),
-          ))
+            searchResults[i]._id
+          ));
         }
+        $("#bottom-text").addClass("d-none");
       }
     }
     
-    $('button').click('click', function() {
+    $('.review-button').on('click', function() {
       if ($(this).attr('shown') == 'true') {
-        reviewList = $(this).parent().children('ul')
+        reviewList = $(this).closest(".prof-row").children('ul')
         reviewList.html('')
         $(this).attr('shown', 'false')
-        $(this).text('Show Reviews')
+        $(this).text('Show')
         $("#profs li").addClass("d-flex")
+        $("#profs li").removeClass("reviews-shown")
+        $("#profs li").removeClass("flex-column")
         $("#profs li").removeClass("d-none")
          $(".divider").addClass("d-block")
         $(".divider").removeClass("d-none")
@@ -112,9 +145,9 @@ function mainFunc() {
         $("#profs li").addClass("d-none")
         $(".divider").removeClass("d-block")
         $(".divider").addClass("d-none")
-        $(this).parent().removeClass("d-none")
-        $(this).parent().addClass("d-flex")
-        reviewList = $(this).parent().children('ul')
+        $(this).closest(".prof-row").removeClass("d-none")
+        $(this).closest(".prof-row").addClass("d-flex flex-column reviews-shown")
+        reviewList = $(this).closest(".prof-row").children('ul')
         reviewList.html('')
         id = $(this).attr('id')
         profReviews = reviews.filter(function(p) {
@@ -123,46 +156,32 @@ function mainFunc() {
         profReviews.sort(function(a, b) {
           return parseInt(b.year)-parseInt(a.year)
         })
-        for (var i = 0; i < profReviews.length; i++) {
+
+        reviewList.append(`${profReviews.length} review${profReviews.length == 1? '': 's'}`);
+
+        for (let i = 0; i < profReviews.length; i++) {
+          let average = parseInt(profReviews[i].rating.helpfulness) + 
+          parseInt(profReviews[i].rating.pedagogy) + parseInt(profReviews[i].rating.easiness);
+          average = average/3;
+
           reviewList.append(reviewTemplate.format(
             profReviews[i].comment,
+            profReviews[i].year,
             profReviews[i].classTaken,
+            average.toFixed(2),
             StarCalculate(profReviews[i].rating.helpfulness),
             StarCalculate(profReviews[i].rating.pedagogy),
             StarCalculate(profReviews[i].rating.easiness),
-            profReviews[i].year,
           ))
         }
+
         $(this).attr('shown', 'true')
-        $(this).text('Hide Reviews')
+        $(this).text('Back')
       }
     })
   })
 }
 
-profTemplate = `
-<li class="d-flex flex-column">
-  
-  <div>{0}, {1}</div>
-  <div>Helpfulness: {2}</div>
-  <div>Pedagogy: {3}</div>
-  <div>Easiness: {4}</div>
-  <div>Overall: {5}</div>
-  <button id="{6}" class="review-button btn">Show Reviews</button>
-  <ul></ul>
-</li>
-{7}`
-
-reviewTemplate = '\
-<li>\
-  <div>{0}</div>\
-  <div>Class Taken: {1}</div>\
-  <div>Helpfulness: {2}</div>\
-  <div>Pedagogy: {3}</div>\
-  <div>Easiness: {4}</div>\
-  <div>Year: {5}</div>\
-</li>\
-'
 noResultTemplate = `
-  <p class="my-3">No results found</p>
-`
+  <p class="my-3 mx-auto">No results found</p>
+` 

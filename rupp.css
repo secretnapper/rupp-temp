@@ -1,64 +1,21 @@
-/*
-
-	RUPP Dev Team
-
-*/
-
 @import url('https://fonts.googleapis.com/css?family=Arimo');
 @import url('https://fonts.googleapis.com/css?family=Ubuntu');
-
-html{
-	background: #f2f2f2;
-}
-
-body{
-	background: #e95420; /* Old browsers */
-background: -moz-linear-gradient(top, #e95420 0%, #8d1437 100%); /* FF3.6-15 */
-background: -webkit-linear-gradient(top, #e95420 0%,#8d1437 100%); /* Chrome10-25,Safari5.1-6 */
-background: linear-gradient(to bottom, #e95420 0%,#8d1437 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e95420', endColorstr='#8d1437',GradientType=0 ); /* IE6-9 */
-	background-size: cover;
-	font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
-	color: white;
-	background-repeat: no-repeat; 
-}
-
-
-
-h1, h2, h3, h4, h5, h6{
-	font-family: Ubuntu;
-}
-
-h1, h2{
-	font-family: bold;
-}
-
 #profs{
 	background: #f2f2f2;
 	color: #090909;
 }
-
 #profs li{
-	padding: 0.5em 2em;
-	margin: 1em;
 	min-width: 20em;
 }
 
-#profs li div:first-child {
+#profs li .prof-name{
 	font-family: Ubuntu;
 	font-weight: 600;
 }
-
 #profs li ul{
-	list-style: none;
 	font-size: .85em;
+	list-style: none;
 	padding: 0;
-}
-
-#profs li ul li div:not(:first-child){
-	display: inline-block;
-	margin: 1em;
-	font-family: Ubuntu;
 }
 
 #profs li ul li{
@@ -70,11 +27,10 @@ h1, h2{
 	color: #333;
 }
 
-button{
-	font-family: Ubuntu;
-	background: #8d1437;
-	color: white;
-	margin-top: 0.5em;
+.divider{
+	border-top: 1px solid #ddd;
+	padding: 0;
+	width: 100%;
 }
 
 .over9000{
@@ -82,27 +38,110 @@ button{
 	font-weight: 800;
 }
 
-.divider{
-	border-top: 1px solid #ddd;
-	padding: 0;
-	width: 100%;
+.prof-name{
+	margin-top: auto;
+	margin-bottom: auto;
 }
 
-.vh-100 {
-	min-height: 100vh;
+.review-button{
+	background-color: #8d1437 !important;
+	color: white !important;
 }
 
+.reviews-shown .more-info{
+	flex-direction: column;
+}
 
-a:hover{
+.reviews-shown .prof-name{
+	margin-left: auto;
+	margin-top: 1rem;
+	margin-bottom: 1.25rem;
+	font-size: 1.5rem;
+}
+
+.reviews-shown .ratings{
+	display: flex !important;
+}
+
+.reviews-shown .rating{
+	padding: 0.5rem;
+	background: #eeeeee;
+	border-radius: 4px;
+}
+
+.reviews-shown .review-button{
+	margin-top: 1rem;
+	margin-bottom: 0.5rem;
+}
+
+.search-icon{
+	color: #090909;
+}
+
+.star{
+	color: #3d8fbe;
+}
+
+.star-show{
+	font-size: 0.75rem;
+}
+
+.vh-100{
+	min-height: 100vh !important;
+	height: 100% !important;
+}
+
+@media (min-width: 768px){
+	.action-buttons{
+		margin-left: 0 !important;
+	}
+
+	
+	.reviews-shown .rating span{
+		font-size: 1.5rem;
+	}
+
+	.reviews-shown .rating{
+		padding: 1rem;
+		background: #eeeeee;
+		border-radius: 4px;
+		min-width: 90px;
+	}
+}
+
+a{
 	text-decoration: none;
 }
 
-hr{
-	border-color:white
+body{
+	background: #e95420;
+	background: linear-gradient(to bottom, #e95420 0%,#8d1437 100%);
+	background: -moz-linear-gradient(top, #e95420 0%, #8d1437 100%);
+	background: -webkit-linear-gradient(top, #e95420 0%,#8d1437 100%);
+	background-repeat: no-repeat;
+	background-size: cover;
+	color: white;
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e95420', endColorstr='#8d1437',GradientType=0 );
+	font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
 }
 
-@media (min-width: 1440px){
-	.container {
-		max-width: 1400px;
-	}
+button{
+	font-family: Ubuntu;
+}
+
+h1, h2{
+	font-family: bold;
+}
+
+h1, h2, h3, h4, h5, h6{
+	font-family: Ubuntu;
+}
+
+hr{
+	border-color: white;
+	opacity: 1
+}
+
+html{
+	background: #f2f2f2;
 }
