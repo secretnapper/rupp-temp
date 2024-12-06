@@ -59,6 +59,11 @@
 	flex-direction: column;
 	margin-left: auto;
 	margin-right: auto;
+	width: 100%;
+}
+
+.reviews-shown .overall{
+	margin-top: 1rem;
 }
 
 .reviews-shown .prof-name{
@@ -71,7 +76,9 @@
 
 .reviews-shown .ratings{
 	display: flex !important;
-	margin-right: 0;
+	margin-left: auto;
+	margin-right: auto;
+	flex-direction: column;
 }
 
 .reviews-shown .rating{
@@ -131,6 +138,10 @@
 		font-size: 0.85rem;
 		padding: 0.5rem 0.85rem;
 	}
+
+	.reviews-shown .overall span{
+		font-size: 1.5rem !important;
+	}
 	
 	.reviews-shown .prof-name{
 		font-size: 1.5rem;
@@ -138,16 +149,15 @@
 	}
 
 	.reviews-shown .rating span{
-		font-size: 1.5rem;
+		font-size: 1.15rem;
 	}
 
 	.reviews-shown .rating{
 		padding: 1rem;
 		background: #eeeeee;
 		border-radius: 4px;
-		min-width: 90px;
 	}
-
+	
 	.small, small {
 		font-size: .875em;
 	}

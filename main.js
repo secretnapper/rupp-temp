@@ -185,7 +185,8 @@ function mainFunc() {
           return parseInt(b.year)-parseInt(a.year)
         })
 
-        reviewList.append(`${profReviews.length} review${profReviews.length == 1? '': 's'}`);
+        reviewList.append(Divider());
+        reviewList.append(`<p class="my-3 fw-bold">${profReviews.length} review${profReviews.length == 1? '': 's'}</p>`);
 
         for (let i = 0; i < profReviews.length; i++) {
           let average = parseInt(profReviews[i].rating.helpfulness) + 
