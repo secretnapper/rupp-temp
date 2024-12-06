@@ -15,6 +15,15 @@ intervalId = setInterval(function() {
   }
 }, 200)
 
+
+function escapeHTML(html) {
+    let escaper = document.createElement('textarea');
+    escaper.textContent = html;
+    let retval = escaper.innerHTML;
+    escaper.remove();
+    return retval;
+}
+
 $(function() {
 
   const nowYear  = new Date().getFullYear();
@@ -132,8 +141,8 @@ function mainFunc() {
           }
 
           $('#profs').append(profTemplate.format(
-            searchResults[i].lastName,
-            searchResults[i].firstName,
+            escapeHTML(searchResults[i].lastName),
+            escapeHTML(searchResults[i].firstName),
             Over(searchResults[i].rating.helpfulness.toFixed(2)),
             Over(searchResults[i].rating.pedagogy.toFixed(2)),
             Over(searchResults[i].rating.easiness.toFixed(2)),
@@ -184,9 +193,9 @@ function mainFunc() {
           average = average/3;
 
           reviewList.append(reviewTemplate.format(
-            profReviews[i].comment,
-            profReviews[i].year,
-            profReviews[i].classTaken,
+            escapeHTML(profReviews[i].comment),
+            escapeHTML(profReviews[i].year),
+            escapeHTML(profReviews[i].classTaken),
             average.toFixed(2),
             StarCalculate(profReviews[i].rating.helpfulness),
             StarCalculate(profReviews[i].rating.pedagogy),
